@@ -1,0 +1,62 @@
+[
+    {
+      "name": "Div",
+      "tag": "div",
+      "description": "Generic container element",
+      "example": "<div></div>"
+    },
+    {
+      "name": "Paragraph",
+      "tag": "p",
+      "description": "Text paragraph",
+      "example": "<p></p>"
+    },
+    {
+      "name": "Link",
+      "tag": "a",
+      "description": "Link to another page",
+      "example": "<a href='#'>Link</a>"
+    },
+    {
+      "name": "Button",
+      "tag": "button",
+      "description": "Interactive button",
+      "example": "<button>Button</button>"
+    },
+    {
+      "name": "Input",
+      "tag": "input",
+      "description": "Text input field",
+      "example": "<input type='text' placeholder='Type here'>"
+    },
+    {
+      "name": "Image",
+      "tag": "img",
+      "description": "Image",
+      "example": "<img src='image_path.jpg' alt='Image description'>"
+    },
+    {
+      "name": "Heading 1",
+      "tag": "h1",
+      "description": "Level 1 heading",
+      "example": "<h1>Heading 1</h1>"
+    },
+    {
+      "name": "Unordered List",
+      "tag": "ul",
+      "description": "Unordered list",
+      "example": "<ul><li>Item 1</li><li>Item 2</li></ul>"
+    },
+    {
+      "name": "Ordered List",
+      "tag": "ol",
+      "description": "Ordered list",
+      "example": "<ol><li>Item 1</li><li>Item 2</li></ol>"
+    },
+    {
+      "name": "Form",
+      "tag": "form",
+      "description": "Form for submitting data",
+      "example": "<form action='/submit' method='post'></form>"
+    }
+]
