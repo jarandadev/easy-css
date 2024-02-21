@@ -45,9 +45,9 @@ export const SelectorHTML = () => {
               {htmlTags.map((element) => (
                 <CommandItem
                   key={element.tag}
-                  value={element.tag}
+                  value={element.name}
                   onSelect={(selectValue) => {
-                    setValue(htmlTags.find((element) => element.tag === selectValue) || null)
+                    setValue(htmlTags.find((element) => element.name.toLowerCase() === selectValue) || null)
                     setOpen(false)
                   }}
                 >

@@ -8,12 +8,11 @@ export const CodeHTML = () => {
   const chevronColor = 'text-gray-600'
   const tagColor = 'text-blue-500'
   return (
-    <div className="w-full">
-      {codeHTML.length > 0 && (
+    <div className="w-full bg-blue-500/30 p-6 rounded-2xl shadow-xl">
+      <h1 className="font-bold text-blue-500 mb-2">HTML</h1>
+      {codeHTML.length > 0 ? (
         <>
-
-          <h1 className="font-bold text-blue-500 mb-2">CODE HTML</h1>
-          <div className="border-2 p-1 grid grid-cols-2 items-center">
+          <div className="grid grid-cols-2 items-center">
             {codeHTML.map((inputHTML) => (
               <>
                 <p>
@@ -30,6 +29,8 @@ export const CodeHTML = () => {
             ))}
           </div>
         </>
+      ): (
+        <p>Add some HTML elements</p>
       )}
     </div>
   )

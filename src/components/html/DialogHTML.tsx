@@ -22,7 +22,7 @@ interface Props {
 
 export const DialogHTML = ({ value, open = true, onClose }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null)
-  
+
   const { addInputHTML, editInputHTML } = useCodeStore()
 
   if (!value) return null
@@ -30,19 +30,18 @@ export const DialogHTML = ({ value, open = true, onClose }: Props) => {
   const handleAdd = () => {
     if (!inputRef.current?.value) return;
     onClose(false)
-    addInputHTML({...value, content: inputRef.current.value})
+    addInputHTML({ ...value, content: inputRef.current.value })
   }
 
   const handleEdit = () => {
     if (!inputRef.current?.value) return;
     onClose(false)
-    editInputHTML({...value, content: inputRef.current.value})
+    editInputHTML({ ...value, content: inputRef.current.value })
   }
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      !!!value.line ? handleAdd() : handleEdit()
-    }
+    if (event.key === 'Enter') !!!value.line ? handleAdd() : handleEdit()
+    if (event.key === 'Escape') onClose(false)
   };
 
   return (
@@ -50,9 +49,9 @@ export const DialogHTML = ({ value, open = true, onClose }: Props) => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>{value.element.name}</DialogTitle>
-          <DialogDescription>
-            {value.element.description}
-            {value.element.example}
+          <DialogDescription className="[&>p>span]:font-bold">
+            <p><span>Description: </span>{value.element.description}</p>
+            <p><span>Code example: </span>{value.element.example}</p>
           </DialogDescription>
         </DialogHeader>
         <div>
