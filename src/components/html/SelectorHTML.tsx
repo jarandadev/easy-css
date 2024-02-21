@@ -1,9 +1,5 @@
 "use client"
 
-import { useRef, useState } from "react"
-import { Check, ChevronsUpDown } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import {
   Popover,
   PopoverContent,
@@ -16,16 +12,16 @@ import {
   CommandInput,
   CommandItem,
 } from "@/components/ui/command"
+import { useState } from "react"
+import { ChevronsUpDown } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import htmlTags from '@/data/htmlTags.json'
-import { EditorHTMLDialog } from "./EditorHTMLDialog"
+import { DialogHTML } from "./DialogHTML"
 
-interface Props {
-  onAdd: (elementHTML: ElementHTML) => void
-}
-
-export const SelectorHTML = ({ onAdd }: Props) => {
+export const SelectorHTML = () => {
   const [open, setOpen] = useState(false)
-  const [value, setValue] = useState<CodeElement | null>(null)
+  const [value, setValue] = useState<ElementHTML | null>(null)
+  const inputHtml = {element: value, content: ''} as InputHTML
 
   return (
     <div>
@@ -63,7 +59,7 @@ export const SelectorHTML = ({ onAdd }: Props) => {
           </Command>
         </PopoverContent>
       </Popover>
-      {value && <EditorHTMLDialog value={value} open={!!value} onClose={() => setValue(null)} onAdd={onAdd} />}
+      {value && <DialogHTML value={inputHtml} onClose={() => setValue(null)} />}
     </div>
 
   )

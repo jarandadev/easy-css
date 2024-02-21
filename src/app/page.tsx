@@ -1,26 +1,24 @@
 'use client'
 
-import { EditorHTML } from "@/components/EditorHTML";
+import { CodeHTML } from "@/components/html/CodeHTML";
 import { Preview } from "@/components/Preview";
-import { SelectorHTML } from "@/components/SelectorHTML";
-import { useState } from "react";
+import { SelectorHTML } from "@/components/html/SelectorHTML";
 
 export default function Home() {
 
-  const [codeHTML, setCodeHTML] = useState<ElementHTML[]>([]);
-  const [codeCSS, setCodeCSS] = useState<string[]>([]);
-
   return (
-    <div className="flex flex-col justify-center items-center h-screen w-full gap-10">
-      <Preview codeHTML={codeHTML} codeCSS={codeCSS} />
-      <div className="flex justify-center gap-6">
-        <SelectorHTML onAdd={(newElement) => setCodeHTML([...codeHTML, newElement])} />
-        {/* <SelectorCSS /> */}
+    <main className="flex justify-center items-center min-h-screen">
+      <div className="flex flex-col max-w-6xl w-full gap-10">
+        <Preview />
+        <div className="flex justify-center gap-6">
+          <SelectorHTML />
+          {/* <SelectorCSS /> */}
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <CodeHTML />
+          {/* <CodeCss /> */}
+        </div>
       </div>
-      <div className="flex justify-center gap-6">
-        <EditorHTML codeHTML={codeHTML} />
-        {/* <EditorCss /> */}
-      </div>
-    </div>
+    </main>
   );
 }
