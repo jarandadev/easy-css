@@ -2,17 +2,34 @@ import { useCodeStore } from "@/state/state";
 import { useEffect, useRef } from "react";
 
 export const Preview = () => {
-  const { codeHTML } = useCodeStore()
+  const { codeHTML, codeCSS } = useCodeStore()
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (containerRef.current) {
       const container = containerRef.current;
-      container.innerHTML = codeHTML.map((code) => (
-        `<${code.element.tag}>${code.content}</${code.element.tag}>`
-      )).join('');
+
+      // Clear previous content and styles
+      container.innerHTML = '';
+
+      // Filter codeHTML elements that have the same tag as the container
+      const filteredHTML = codeHTML.filter(html => html.element.tag === container.tagName.toLowerCase());
+      
+      // Create new elements with filtered HTML and apply CSS styles
+      filteredHTML.forEach(html => {
+        const element = document.createElement(html.element.tag);
+        element.innerHTML = html.content;
+        container.appendChild(element);
+
+        const matchingCSS = codeCSS.filter(css => css.class === html.element.tag);
+        matchingCSS.forEach(css => {
+          if (element instanceof HTMLElement) {
+            (element.style as any)[css.element.property] = css.content;
+          }
+        });
+      });
     }
-  }, [codeHTML]);
+  }, [codeHTML, codeCSS]);
 
   return (
     <div className="w-full bg-purple-500/20 p-6 rounded-2xl shadow-xl">

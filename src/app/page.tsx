@@ -3,6 +3,8 @@
 import { CodeHTML } from "@/components/html/CodeHTML";
 import { Preview } from "@/components/Preview";
 import { SelectorHTML } from "@/components/html/SelectorHTML";
+import { SelectorCSS } from "@/components/css/SelectorCSS";
+import { CodeCSS } from "@/components/css/CodeCSS";
 
 export default function Home() {
 
@@ -16,8 +18,8 @@ export default function Home() {
             <CodeHTML />
           </div>
           <div>
-            {/* <SelectorCSS />
-            <CodeCSS /> */}
+            <SelectorCSS />
+            <CodeCSS />
           </div>
         </div>
       </div>

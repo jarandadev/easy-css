@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Color",
+        "property": "color",
+        "description": "Text color",
+        "example": "color: blue;"
+    },
+    {
+        "name": "Background Color",
+        "property": "background-color",
+        "description": "Background color",
+        "example": "background-color: lightgray;"
+    },
+    {
+        "name": "Font Size",
+        "property": "font-size",
+        "description": "Text font size",
+        "example": "font-size: 16px;"
+    },
+    {
+        "name": "Font Family",
+        "property": "font-family",
+        "description": "Text font family",
+        "example": "font-family: Arial, sans-serif;"
+    },
+    {
+        "name": "Margin",
+        "property": "margin",
+        "description": "Outer margin",
+        "example": "margin: 10px;"
+    },
+    {
+        "name": "Padding",
+        "property": "padding",
+        "description": "Inner padding",
+        "example": "padding: 5px;"
+    },
+    {
+        "name": "Border",
+        "property": "border",
+        "description": "Border",
+        "example": "border: 1px solid black;"
+    },
+    {
+        "name": "Width",
+        "property": "width",
+        "description": "Width",
+        "example": "width: 200px;"
+    },
+    {
+        "name": "Height",
+        "property": "height",
+        "description": "Height",
+        "example": "height: 100px;"
+    },
+    {
+        "name": "Display",
+        "property": "display",
+        "description": "Display behavior",
+        "example": "display: block;"
+    }
+]

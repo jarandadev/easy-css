@@ -37,14 +37,22 @@ export const useCodeStore = create<CodeStore>((set) => ({
   codeCSS: [],
 
   addInputCSS: (element) => (
-    set((state) => ({}))
+    set((state) => {
+      const maxLine = state.codeCSS.reduce((acc, el) => el.line ? el.line > acc ? el.line : acc : acc, 0)
+
+      return { codeCSS: [...state.codeCSS, { ...element, line: maxLine + 1 }] }
+    })
   ),
 
   editInputCSS: (element) => (
-    set((state) => ({}))
+    set((state) => (
+      { codeCSS: state.codeCSS.map((el) => el.line === element.line ? element : el) }
+    ))
   ),
 
   deleteInputCSS: (element) => (
-    set((state) => ({}))
+    set((state) => (
+      { codeCSS: state.codeCSS.filter((el) => el.line !== element.line) }
+    ))
   )
 }))
