@@ -11,12 +11,9 @@ export const Preview = () => {
 
       // Clear previous content and styles
       container.innerHTML = '';
-
-      // Filter codeHTML elements that have the same tag as the container
-      const filteredHTML = codeHTML.filter(html => html.element.tag === container.tagName.toLowerCase());
       
       // Create new elements with filtered HTML and apply CSS styles
-      filteredHTML.forEach(html => {
+      codeHTML.forEach(html => {
         const element = document.createElement(html.element.tag);
         element.innerHTML = html.content;
         container.appendChild(element);

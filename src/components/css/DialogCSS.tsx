@@ -39,7 +39,7 @@ export const DialogCSS = ({ value, open = true, onClose }: Props) => {
   const handleEdit = () => {
     if (!inputRef.current?.value) return;
     onClose(false)
-    editInputCSS({ ...value, content: inputRef.current.value, class: tagValue?.element.tag })
+    editInputCSS({ ...value, content: inputRef.current.value, class: tagValue?.element.tag})
   }
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -60,7 +60,11 @@ export const DialogCSS = ({ value, open = true, onClose }: Props) => {
           </DialogDescription>
         </DialogHeader>
         <div>
+        {value.element.property.includes("color") ? (
           <Input onKeyDown={handleKeyPress} type="color" ref={inputRef} defaultValue={value.content} />
+        ) : (
+          <Input onKeyDown={handleKeyPress} type="text" ref={inputRef} defaultValue={value.content} />
+        )}
         </div>
 
         <ClassCSS onSelect={setTagValue} value={tagValue}/>
