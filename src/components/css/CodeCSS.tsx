@@ -14,18 +14,20 @@ export const CodeCSS = () => {
         <>
           <div className="grid grid-cols-2 items-center">
             {codeCSS.map((inputCSS) => (
-              <div>
+              <>
                 <p>
-                    <span className={tagColor}>{inputCSS.class}</span>
-                    <span className={chevronColor}>{' {'}</span>
+                  <span className={tagColor}>{inputCSS.class}</span>
+                  <span className={chevronColor}>{' {'}</span>
+                  
                 </p>
+                <TagEditorCSS inputCSS={inputCSS} />
                 <p>
                   <span className={tagColor}>{inputCSS.element.property}</span>
                   <span className={chevronColor}> {': '}</span>
                   <span>{inputCSS.content}</span>
                 </p>
-                <TagEditorCSS inputCSS={inputCSS} />
-              </div>
+                
+              </>
             ))}
           </div>
         </>
