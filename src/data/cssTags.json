@@ -2,60 +2,70 @@
     {
         "name": "Color",
         "property": "color",
+        "content": "",
         "description": "Text color",
         "example": "color: blue;"
     },
     {
         "name": "Background Color",
         "property": "background-color",
+        "content": "",
         "description": "Background color",
         "example": "background-color: lightgray;"
     },
     {
         "name": "Font Size",
         "property": "font-size",
+        "content": "",
         "description": "Text font size",
         "example": "font-size: 16px;"
     },
     {
         "name": "Font Family",
         "property": "font-family",
+        "content": "",
         "description": "Text font family",
         "example": "font-family: Arial, sans-serif;"
     },
     {
         "name": "Margin",
         "property": "margin",
+        "content": "",
         "description": "Outer margin",
         "example": "margin: 10px;"
     },
     {
         "name": "Padding",
         "property": "padding",
+        "content": "",
         "description": "Inner padding",
         "example": "padding: 5px;"
     },
     {
         "name": "Border",
         "property": "border",
+        "content": "",
         "description": "Border",
         "example": "border: 1px solid black;"
     },
     {
         "name": "Width",
         "property": "width",
+        "content": "",
         "description": "Width",
         "example": "width: 200px;"
     },
     {
         "name": "Height",
         "property": "height",
+        "content": "",
         "description": "Height",
         "example": "height: 100px;"
     },
     {
         "name": "Display",
         "property": "display",
+        "content": "",
         "description": "Display behavior",
         "example": "display: block;"
     }

@@ -22,7 +22,7 @@ import { DialogCSS } from "./DialogCSS"
 export const SelectorCSS = () => {
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState<ElementCSS | null>(null)
-  const inputCSS = {element: value, content: ''} as InputCSS
+  const inputCSS = {elements: []} as InputCSS
 
   return (
     <div>
@@ -48,6 +48,7 @@ export const SelectorCSS = () => {
                   key={element.property}
                   value={element.name}
                   onSelect={(selectValue) => {
+                    console.log(selectValue)
                     setValue(cssTags.find((element) => element.name.toLowerCase() === selectValue) || null)
                     setOpen(false)
                   }}
@@ -60,7 +61,7 @@ export const SelectorCSS = () => {
           </Command>
         </PopoverContent>
       </Popover>
-      {value && <DialogCSS value={inputCSS} onClose={() => setValue(null)} />}
+      {value && <DialogCSS value={inputCSS} select={value} onClose={() => setValue(null)} />}
       
     </div>
 

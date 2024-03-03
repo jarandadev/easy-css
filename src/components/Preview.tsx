@@ -21,7 +21,11 @@ export const Preview = () => {
         const matchingCSS = codeCSS.filter(css => css.class === html.element.tag);
         matchingCSS.forEach(css => {
           if (element instanceof HTMLElement) {
-            (element.style as any)[css.element.property] = css.content;
+            css.elements.forEach(css => {
+              (element.style as any)[css.property] = css.content;
+              console.log(element)
+              console.log((element.style as any)[css.property])
+            });
           }
         });
       });

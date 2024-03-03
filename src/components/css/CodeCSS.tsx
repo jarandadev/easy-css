@@ -22,12 +22,24 @@ export const CodeCSS = () => {
                   <span className={chevronColor}>{' {'}</span>
                 </p>
                 <p></p>
+                {inputCSS.elements.map((element) => (
+                  <>
+                    <p>
+                      <span className={tagColor}>{element.property}</span>
+                      <span className={chevronColor}> {': '}</span>
+                      <span>{element.content}</span>
+                      <span className={chevronColor}>,</span>
+                    </p>
+                    <p></p>
+                    {/* <p>
+                      <TagEditorCSS elementCSS={element} />
+                    </p> */}
+                  </>
+                ))}
                 <p>
-                  <span className={tagColor}>{inputCSS.element.property}</span>
-                  <span className={chevronColor}> {': '}</span>
-                  <span>{inputCSS.content}</span>
+                  <span className={chevronColor}>{'} '}</span>
                 </p>
-                <TagEditorCSS inputCSS={inputCSS} />
+                <p></p>
                 
               </>
             ))}

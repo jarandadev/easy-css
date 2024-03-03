@@ -7,6 +7,7 @@ interface ElementHTML {
 
 interface ElementCSS {
     name: string,
+    content: string,
     property: string,
     description: string,
     example: string
@@ -19,8 +20,7 @@ interface InputHTML {
 }
 
 interface InputCSS {
-    element: ElementCSS,
-    content: string,
+    elements: ElementCSS[],
     class?: string,
     line?: number
 }

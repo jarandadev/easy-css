@@ -17,11 +17,12 @@ import { ClassCSS } from "@/components/css/ClassCSS"
 
 interface Props {
   value: InputCSS | null,
+  select : ElementCSS,
   open?: boolean,
   onClose: (open: boolean) => void
 }
 
-export const DialogCSS = ({ value, open = true, onClose }: Props) => {
+export const DialogCSS = ({ value, open = true, onClose, select }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const { addInputCSS, editInputCSS } = useCodeStore()
@@ -32,14 +33,15 @@ export const DialogCSS = ({ value, open = true, onClose }: Props) => {
 
   const handleAdd = () => {
     if (!inputRef.current?.value) return;
+    console.log(select?.content)
     onClose(false)
-    addInputCSS({ ...value, content: inputRef.current.value, class: tagValue?.element.tag })
+    addInputCSS({ ...value, class: tagValue?.element.tag}, {name: select?.name, content: inputRef.current?.value, property: select?.property, description: select?.description, example: select?.example})
   }
 
   const handleEdit = () => {
     if (!inputRef.current?.value) return;
     onClose(false)
-    editInputCSS({ ...value, content: inputRef.current.value, class: tagValue?.element.tag})
+    editInputCSS({ ...value, class: tagValue?.element.tag})
   }
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -47,24 +49,26 @@ export const DialogCSS = ({ value, open = true, onClose }: Props) => {
     if (event.key === 'Escape') onClose(false)
   };
 
- 
+  let type : string
+
+  if (select?.property.includes("color")){
+    type = "color"
+  }else if (select?.example.includes("px")){
+    type = "number"
+  } else { type = "text"}
 
   return (
     <Dialog open={open}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>{value.element.name}</DialogTitle>
+          <DialogTitle>{select?.name}</DialogTitle>
           <DialogDescription className="[&>p>span]:font-bold">
-            <span>Description: </span>{value.element.description}
-            <span>Code example: </span>{value.element.example}
+            <span>Description: </span>{select?.description}
+            <span>Code example: </span>{select?.example}
           </DialogDescription>
         </DialogHeader>
         <div>
-        {value.element.property.includes("color") ? (
-          <Input onKeyDown={handleKeyPress} type="color" ref={inputRef} defaultValue={value.content} />
-        ) : (
-          <Input onKeyDown={handleKeyPress} type="text" ref={inputRef} defaultValue={value.content} />
-        )}
+        <Input onKeyDown={handleKeyPress} type={type} ref={inputRef} defaultValue={select?.content} />
         </div>
 
         <ClassCSS onSelect={setTagValue} value={tagValue}/>
